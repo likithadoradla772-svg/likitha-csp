@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encouraging Sustainable Horticulture and Home Gardening - CSP Report</title>
+<style>
+  :root {
+    --primary: #1b4332;
+    --secondary: #2d6a4f;
+    --accent: #52b788;
+    --bg: #f4f7f5;
+    --card: #ffffff;
+    --text: #1f2933;
+    --muted: #52606d;
+    --border: #d9e2ec;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body { background: var(--bg); color: var(--text); line-height: 1.6; }
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-bottom: 5px solid var(--accent);
+  }
+  .header-card {
+    background: #fff;
+    color: #111;
+    max-width: 900px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: left;
+    flex-wrap: wrap;
+  }
+  .college-logo {
+    max-width: 130px;
+    height: auto;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+    margin: 0 auto;
+  }
+  .banner-text {
+    flex: 1;
+    min-width: 280px;
+  }
+  .banner-text h2 { font-size: 1.35rem; letter-spacing: 0.5px; color: #000; line-height: 1.2; }
+  .banner-text p { font-size: 0.85rem; color: #444; margin-top: 4px; }
+  .dept-title { color: #5b0e91; font-weight: 700; font-size: 0.95rem; margin-top: 8px; text-transform: uppercase; }
+  .scheme-banner {
+    background: rgba(0,0,0,0.25);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-size: 1.65rem;
+    max-width: 950px;
+    margin: 0.5rem auto;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    background: rgba(255,255,255,0.15);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin-inline: auto;
+    backdrop-filter: blur(5px);
+  }
+  nav {
+    background: #122c20;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  nav a:hover { background: var(--secondary); }
+  main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  section {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border: 1px solid var(--border);
+  }
+  h2.section-title {
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  h3 { color: var(--secondary); margin: 1.25rem 0 0.5rem; font-size: 1.2rem; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .photo-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .photo-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #e6ece8;
+    display: block;
+  }
+  .photo-card .caption { padding: 1rem; font-size: 0.9rem; color: var(--muted); }
+  .photo-card .caption strong { color: var(--primary); display: block; margin-bottom: 0.25rem; }
+  ul.clean-list { padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  ul.clean-list li { margin-bottom: 0.25rem; }
+  .explore-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: #eef5f0;
+    padding: 1.25rem;
+    border-radius: 8px;
+  }
+  .explore-controls select, .explore-controls input, .explore-controls button {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #b7cbbd;
+    font-size: 1rem;
+  }
+  .explore-controls input { flex: 1; min-width: 250px; }
+  .explore-controls button {
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding-inline: 1.5rem;
+  }
+  .explore-controls button:hover { background: var(--primary); }
+  .dynamic-box {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fcfdfd;
+  }
+  .gallery-toggle {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0.85rem 1.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .gallery-toggle:hover { background: var(--secondary); }
+  .hidden { display: none; }
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary);
+    color: #d8f3dc;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    border-top: 4px solid var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-card">
+    <img src="college_logo.png" alt="Sree Venkateswara College of Engineering Logo" class="college-logo">
+    <div class="banner-text">
+      <h2>SREE VENKATESWARA COLLEGE OF ENGINEERING</h2>
+      <p>(An UGC Autonomous Institution) | Accredited by NBA, NAAC with ‘A Grade’ & ISO 9001:2015 Certified</p>
+      <p>Approved by AICTE, New Delhi and Affiliated to JNTUA, Anantapuramu | North Rajupalem, Kodavaluru(V&M), S.P.S.R Nellore (Dt)-524316</p>
+      <div class="dept-title">DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING</div>
+    </div>
+  </div>
+
+  <div class="scheme-banner">AP STATE COUNCIL OF HIGHER EDUCATION — COMMUNITY SERVICE PROJECT (2026–2027)</div>
+  
+  <h1>ENCOURAGING SUSTAINABLE HORTICULTURE AND HOME GARDENING FOR IMPROVED NUTRITION, ENVIRONMENT AND RURAL LIVELIHOOD</h1>
+  
+  <div class="meta-bar">
+    <span><strong>Student:</strong> DORADLA LIKITHA (24JNA05214)</span>
+    <span><strong>Program:</strong> III Year B.Tech (CSE-C)</span>
+    <span><strong>Guide:</strong> MR. K. HARSHA VARDHAN, M.Tech (Assistant Professor, CSE)</span>
+    <span><strong>HOD:</strong> MR. P. PRASAD, M.Tech (PhD)</span>
+    <span><strong>Habitation:</strong> Rebala, Buchi Reddy Palem Mandal, Nellore</span>
+    <span><strong>Period:</strong> 8 Weeks (01-06-2026 to 26-07-2026)</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#about">About Horticulture</a>
+  <a href="#community">Community Overview</a>
+  <a href="#explore-weeks">Explore Weekly Summaries</a>
+  <a href="#explore-outcomes">Explore Outcomes & Plans</a>
+  <a href="#field-activities">Field Activities</a>
+  <a href="#mini-project">Mini Project</a>
+  <a href="#project-photos">Project Photos</a>
+</nav>
+
+<main>
+
+  <section id="about">
+    <h2 class="section-title">1. About Horticulture (Executive Summary)</h2>
+    <div class="grid-2">
+      <div>
+        <p>The Horticulture industry plays a pivotal role in agriculture, encompassing the cultivation of fruits, vegetables, ornamental plants, potato and tuber crops, medicinal and aromatic crops, spices, and plantation crops. It contributes nearly 30% of the agriculture GDP and incorporates principles from botany, plant physiology, soil science, genetics, and agronomy to optimize plant growth, health, and productivity.</p>
+        <p style="margin-top:1rem;">Horticulture contributes substantially to global food security by producing a wide range of nutritious crops, improving dietary diversity, reducing chemical pesticide usage through organic farming and permaculture, conserving water, and mitigating climate change through carbon sequestration in plant biomass. Beyond sustenance, it enhances community aesthetics, supports mental health and stress reduction, and creates rural livelihood opportunities.</p>
+        <h3 style="margin-top: 1.5rem;">Core Branches of Horticulture</h3>
+        <ul class="clean-list">
+          <li><strong>Pomology:</strong> Fruit Crops (e.g., Mango, Star Fruit, Banana, Pomegranate)</li>
+          <li><strong>Olericulture:</strong> Vegetable Crops (e.g., Brinjal, Chilli, Bitter Gourd, Ridge Gourd)</li>
+          <li><strong>Floriculture:</strong> Ornamental Flowers (e.g., Marigold, Jasmine)</li>
+          <li><strong>Viticulture:</strong> Grape Cultivation</li>
+          <li><strong>Plant Propagation & Nursery:</strong> Germination, cuttings, and quality seedling supply</li>
+          <li><strong>Post-Harvest Technology & Landscape Horticulture:</strong> Sorting, storage, and public green spaces</li>
+        </ul>
+      </div>
+      <div>
+        <div class="photo-card">
+          <img src="about_horticulture.jpg" alt="About Horticulture Placeholder Image">
+          <div class="caption">
+            <strong>Horticulture Overview</strong>
+            Visual representation of core horticultural practices and plant cultivation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="community">
+    <h2 class="section-title">2. Overview of the Community & Service Initiative</h2>
+    <p>Conducted in <strong>Rebala, Buchi Reddy Palem Mandal, Nellore District</strong>, the <em>“Green scape Community Enhancement”</em> initiative focuses on improving local quality of life through plant cultivation, home gardening, and green space maintenance.</p>
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div>
+        <h3>Core Pillars</h3>
+        <ul class="clean-list">
+          <li><strong>Beautification:</strong> Transforming public spaces, parks, and vacant lots into aesthetically pleasing areas.</li>
+          <li><strong>Sustainability:</strong> Promoting eco-friendly gardening, composting, and natural fertilizers (cow dung, plant wastes).</li>
+          <li><strong>Education:</strong> Providing workshops, seminars, and educational resources on gardening and soil preparation.</li>
+          <li><strong>Community Engagement:</strong> Encouraging participation from residents, farmers, local schools, and local officials.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Key Community Activities & Benefits</h3>
+        <ul class="clean-list">
+          <li>Creating community gardens in underutilized spaces and planting native trees and flowers.</li>
+          <li>Organizing seasonal cleanup, maintenance events, and gardening workshops for all age groups.</li>
+          <li>Improving air quality, reducing soil erosion, and conserving local biodiversity.</li>
+          <li>Enhancing household access to fresh produce, reducing vegetable expenses, and providing horticultural therapy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="explore-weeks">
+    <h2 class="section-title">3. Explore Weekly Activity Summaries (Weeks 1–6)</h2>
+    <p style="margin-bottom:1rem;">Select a week or search keywords to view brief summaries of the CSP weekly activities and main learning outcomes.</p>
+    <div class="explore-controls">
+      <select id="weekSelector" aria-label="Select Week">
+        <option value="all">All Weeks (Week 1 to Week 6)</option>
+        <option value="1">Week 1 Summary</option>
+        <option value="2">Week 2 Summary</option>
+        <option value="3">Week 3 Summary</option>
+        <option value="4">Week 4 Summary</option>
+        <option value="5">Week 5 Summary</option>
+        <option value="6">Week 6 Summary</option>
+      </select>
+      <input type="text" id="weekSearch" placeholder="Search keywords (soil, pest, composting, FSSAI)...">
+      <button type="button" id="resetWeekBtn">Reset</button>
+    </div>
+    <div id="weekOutput" class="dynamic-box"></div>
+  </section>
+
+  <section id="explore-outcomes">
+    <h2 class="section-title">4. Explore Outcomes, Identified Problems & Action Plans</h2>
+    <p style="margin-bottom:1rem;">Choose a category or enter a search term to explore Chapter 4 findings from the community survey.</p>
+    <div class="explore-controls">
+      <select id="outcomeCategory" aria-label="Select Category">
+        <option value="all">All Categories</option>
+        <option value="outcomes">Major Outcomes of Horticulture (9 Areas)</option>
+        <option value="problems">Problems Identified in the Community</option>
+        <option value="shortTerm">Short-Term Action Plan</option>
+        <option value="longTerm">Long-Term Action Plan</option>
+        <option value="awareness">Community Awareness Programmes & Outcomes</option>
+      </select>
+      <input type="text" id="outcomeSearch" placeholder="Filter outcomes, pests, water conservation, IPM...">
+      <button type="button" id="resetOutcomeBtn">Reset</button>
+    </div>
+    <div id="outcomeOutput" class="dynamic-box"></div>
+  </section>
+
+  <section id="field-activities">
+    <h2 class="section-title">5. Field Activities in Rebala (Buchireddypalem Mandal)</h2>
+    <p>During field visits to Rebala (Lat 14.517°–14.519° N, Long 79.900°–79.902° E; Field GPS: 14.519937, 79.901546), the CSE student team interacted directly with local farmers cultivating floriculture, olericulture, and pomology crops.</p>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="photo-card">
+        <img src="field_farmer_chilli.jpg" alt="Interacting with farmer in green chilli field at Rebala">
+        <div class="caption">
+          <strong>Farmer Interaction — Chilli Cultivation</strong>
+          Students discussing crop health, natural pest control, and irrigation practices with a local farmer in Rebala.
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="field_marigold_floriculture.jpg" alt="Student team in marigold flower field at Rebala">
+        <div class="caption">
+          <strong>Floriculture Field Survey — Marigold</strong>
+          Observing orange and yellow marigold cultivation and harvesting cycles with women farmers in Rebala.
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="field_pomology_mango.jpg" alt="Students inspecting mango orchard crops in Rebala">
+        <div class="caption">
+          <strong>Pomology Observation — Mango Orchard</strong>
+          Inspecting fruit development and orchard management practices during the Rebala farm visit.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mini-project">
+    <h2 class="section-title">6. Mini Project: Website on Horticulture (HortiCare)</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Existing System (Production & Marketing Constraints)</h3>
+        <ul class="clean-list">
+          <li><strong>Traditional Cultivation & Seeds:</strong> ~90% of farmers use traditional seed varieties without soil/seed testing or hybrid disease-resistant cultivars.</li>
+          <li><strong>Bacterial & Fungal Diseases:</strong> Late-blight of tomato, powdery mildew in peas, and fruit fly attacks in guava and ber reduce yields.</li>
+          <li><strong>Marketing Intermediaries:</strong> Pre-harvest contractors, commission wholesalers, and retailers reduce farmer profit margins in Andhra Pradesh.</li>
+          <li><strong>Lack of Cold Storage & Processing:</strong> Perishable produce spoils quickly without cold storage or processing units (jams, jellies, sauces, squashes).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Proposed System, Requirements & Website Modules</h3>
+        <ul class="clean-list">
+          <li><strong>Proposed System:</strong> Leverages India’s diverse agro-climatic zones, dry-land crops (Mango, Coconut, Jamun, Ber, Tamarind, Wood Apple), water management, and women’s market access.</li>
+          <li><strong>Hardware & Software:</strong> Windows 10, 1TB HDD, Intel processor; HTML, CSS, Bootstrap.</li>
+          <li><strong>Modules (User & Admin Open Access):</strong> <em>Home</em> (activities & animations), <em>About</em> (day-to-day activities, pesticides, water facilities), <em>Services</em> (horticulture & government services), and <em>Contact</em> (phone, Gmail, address).</li>
+        </ul>
+      </div>
+    </div>
+    
+    <h3 style="margin-top: 2rem;">Mini Project Photo Documentation</h3>
+    <div class="grid-3" style="margin-top: 1rem;">
+      <div class="photo-card">
+        <img src="miniproject_photo1.jpg" alt="Mini Project Activity 1">
+        <div class="caption">
+          <strong>Platform Interface</strong>
+          Home and navigation layout showcasing accessible horticulture resources.
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="miniproject_photo2.jpg" alt="Mini Project Activity 2">
+        <div class="caption">
+          <strong>Service Modules</strong>
+          Detailed view of government schemes, organic pesticides, and advisory services.
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="miniproject_photo3.jpg" alt="Mini Project Activity 3">
+        <div class="caption">
+          <strong>Community Deployment</strong>
+          Demonstrating the digital platform accessibility for local community members.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-photos">
+    <h2 class="section-title">7. Project Photos & Documentation Gallery</h2>
+    <p style="margin-bottom:1.25rem;">Click the button below to expand the documentation gallery showing field interactions with local farmers.</p>
+    <button type="button" id="togglePhotosBtn" class="gallery-toggle">Show Project Photos</button>
+
+    <div id="photoGalleryContainer" class="hidden">
+      <div class="grid-3">
+        <div class="photo-card">
+          <img src="field_jasmine_farmer.jpg" alt="Jasmine crop survey with farmer in Rebala">
+          <div class="caption">
+            <strong>1. Jasmine Cultivation Survey</strong>
+            Interacting with a woman farmer cultivating jasmine in Rebala.
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="field_brinjal_crop.jpg" alt="Inspecting brinjal plants in Rebala">
+          <div class="caption">
+            <strong>2. Olericulture — Brinjal Field</strong>
+            Examining brinjal crop growth and pest resistance in Rebala.
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="field_starfruit_tree.jpg" alt="Observing star fruit tree in Rebala">
+          <div class="caption">
+            <strong>3. Pomology — Star Fruit Tree</strong>
+            Observing star fruit cultivation and plant maintenance at Rebala.
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="field_bitter_ridge_gourd.jpg" alt="Inspecting trellised gourd crops in Rebala">
+          <div class="caption">
+            <strong>4. Trellised Vegetable Cultivation</strong>
+            Inspecting bitter gourd and ridge gourd vines supported on trellises.
+          </div>
+        </div>
+        <div class="photo-card">
+          <img src="field_banana_sugarcane_maize.jpg" alt="Banana, sugarcane, and maize field observations in Rebala">
+          <div class="caption">
+            <strong>5. Multi-Crop Field Observations</strong>
+            Field survey across banana, sugarcane, and intercropped plots in Rebala.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Community Service Project Report (2026–2027) | DORADLA LIKITHA (24JNA05214) | Department of CSE, Sree Venkateswara College of Engineering, Nellore
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const weeklySummaryData = [
+      {
+        week: 1,
+        theme: "Foundation & Baseline Survey",
+        summary: "Initiated the Community Service Project in Rebala. Conducted baseline household and field surveys to assess community awareness of horticulture, identified prevalent soil types (red and black soils), and began preliminary outreach on natural fertilization.",
+        keywords: "baseline survey, awareness, soil types, natural fertilizers"
+      },
+      {
+        week: 2,
+        theme: "Horticultural Education & Principles",
+        summary: "Focused on educational outreach regarding the core branches of horticulture (Pomology, Olericulture, Floriculture). Instructed community members on proper soil preparation techniques and highlighted government and scientific horticultural organizations.",
+        keywords: "branches, pomology, olericulture, floriculture, soil preparation"
+      },
+      {
+        week: 3,
+        theme: "Problem Identification & Resource Efficiency",
+        summary: "Engaged with local growers to identify major operational challenges. Focused discussions on improving resource use efficiency, introducing Integrated Pest Management (IPM) to curtail chemical pesticide use, and exploring post-harvest management.",
+        keywords: "problem identification, resource efficiency, IPM, post-harvest management"
+      },
+      {
+        week: 4,
+        theme: "Commercial Standards & Protected Cultivation",
+        summary: "Investigated commercial horticulture standards, including quality assurance guidelines under the FSSAI Act. Evaluated the feasibility and structural requirements of low-cost, low-tech greenhouses using local materials to protect crops from climatic stress.",
+        keywords: "FSSAI standards, quality control, low-cost greenhouse, protected cultivation"
+      },
+      {
+        week: 5,
+        theme: "Advanced Cultivation & Soil Nutrition",
+        summary: "Examined advanced crop maintenance techniques including root propagation mechanics and the application of silicon-based foliar sprays (SiO2) to enhance plant resilience. Conducted inventory assessments and reviewed urban agriculture trends.",
+        keywords: "root propagation, foliar application, SiO2, urban agriculture, inventory"
+      },
+      {
+        week: 6,
+        theme: "Sustainable Practices & Community Wrap-Up",
+        summary: "Synthesized project learnings by promoting sustainable home gardening practices such as composting household organic waste and mulching. Concluded community awareness sessions emphasizing long-term environmental and nutritional benefits.",
+        keywords: "sustainable gardening, composting, mulching, community awareness, wrap-up"
+      }
+    ];
+
+    const outcomeData = {
+      outcomes: {
+        title: "Major Outcomes of Horticulture (Section 4.2)",
+        items: [
+          "1. Biodiversity conservation: Protecting plant, animal, microbial, and ecosystem diversity through native plants and green spaces.",
+          "2. Sustainable development: Efficient land and water use, local food production, and rural livelihood opportunities.",
+          "3. Pollution reduction: Composting, responsible fertilizer/pesticide use, erosion prevention, and proper garden-waste disposal.",
+          "4. Food and nutrition: Growing fruits and vegetables in home/community gardens improves fresh produce access and dietary variety.",
+          "5. Soil protection: Crop rotation, cover crops, mulching, conservation tillage, windbreaks, and organic matter reduce erosion.",
+          "6. Improved production: Greenhouses, polyhouses, shade-net houses, raised beds, trellising, mulch, and drip irrigation.",
+          "7. Safe practices: Correct tool use, label-following, protective equipment, safe storage, and equipment maintenance.",
+          "8. Water conservation: Drip irrigation, scheduling, mulching, leak checks, and soil-moisture monitoring.",
+          "9. Community participation: Gardens, nurseries, and public planting build shared responsibility and environmental education."
+        ]
+      },
+      problems: {
+        title: "Problems Identified in the Community (Section 4.3)",
+        items: [
+          "Pollution from transport, industry, chemical inputs, and waste harming air, water, soil, health, and plants.",
+          "Deforestation and habitat loss reducing biodiversity and worsening local climate impacts.",
+          "Climate change, drought, and heat damaging crops and straining water resources.",
+          "Poor waste management creating unsanitary conditions.",
+          "Resource depletion reducing water and fertile soil availability.",
+          "Habitat destruction and unplanned urbanization fragmenting ecosystems and reducing green spaces.",
+          "Weak environmental-policy enforcement disproportionately affecting disadvantaged communities."
+        ]
+      },
+      shortTerm: {
+        title: "Short-Term Action Plan (Section 4.4)",
+        items: [
+          "Conduct public awareness on cleanliness, horticulture, pollution prevention, and government programmes.",
+          "Segregate waste, compost suitable organic residues, and use proper disposal systems.",
+          "Monitor soil fertility, salinity, acidity, weeds, native vegetation, emissions, and water quality.",
+          "Inspect plants for damping-off, root rot, leaf spots, powdery/downy mildew, and viral symptoms.",
+          "Manage water through efficient irrigation, drainage, mulching, and leak repair.",
+          "Control weeds safely, maintain tools/structures, prune plants properly, and harvest at suitable maturity."
+        ]
+      },
+      longTerm: {
+        title: "Long-Term Action Plan (Section 4.5)",
+        items: [
+          "Conserve biodiversity using native or locally suitable plants and maintain vegetation responsibly.",
+          "Apply Integrated Pest Management (IPM) via monitoring, prevention, and cultural/biological controls.",
+          "Develop connected, accessible, and maintainable green infrastructure.",
+          "In protected cultivation, manage crop-specific lighting (red and blue wavelengths), ventilation, and shading.",
+          "Consult horticulture departments for support on area expansion, old-garden rejuvenation, and quality planting material.",
+          "Expand opportunities in nurseries, parks, protected cultivation, and post-harvest services."
+        ]
+      },
+      awareness: {
+        title: "Community Awareness Programmes & Outcomes (Section 4.6)",
+        items: [
+          "Workshops and seminars on gardening, plant selection, routine care, and cleanliness increased resident participation.",
+          "Demonstration garden showcased plant varieties, companion planting, and sustainable crop methods.",
+          "Composting sessions taught residents how to convert organic waste into natural fertilizers to improve soil fertility."
+        ]
+      }
+    };
+
+    const weekSelector = document.getElementById("weekSelector");
+    const weekSearch = document.getElementById("weekSearch");
+    const weekOutput = document.getElementById("weekOutput");
+    const resetWeekBtn = document.getElementById("resetWeekBtn");
+
+    function renderWeekSummaries() {
+      if (!weekSelector || !weekSearch || !weekOutput) return;
+      const selected = weekSelector.value;
+      const query = weekSearch.value.trim().toLowerCase();
+      let html = "";
+
+      const filteredWeeks = weeklySummaryData.filter(function (w) {
+        return selected === "all" || String(w.week) === selected;
+      });
+
+      filteredWeeks.forEach(function (w) {
+        const matchesQuery = !query ||
+          w.theme.toLowerCase().includes(query) ||
+          w.summary.toLowerCase().includes(query) ||
+          w.keywords.toLowerCase().includes(query);
+
+        if (matchesQuery) {
+          html += `<div style="margin-bottom:1.5rem;">
+            <h3>Week ${w.week}: ${w.theme}</h3>
+            <p style="margin-top:0.25rem;">${w.summary}</p>
+            <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--secondary);"><strong>Key Topics:</strong> ${w.keywords}</p>
+          </div>`;
+        }
+      });
+
+      weekOutput.innerHTML = html || "<p>No matching weekly summaries found for your filter.</p>";
+    }
+
+    if (weekSelector && weekSearch && resetWeekBtn) {
+      weekSelector.addEventListener("change", renderWeekSummaries);
+      weekSearch.addEventListener("input", renderWeekSummaries);
+      resetWeekBtn.addEventListener("click", function () {
+        weekSelector.value = "all";
+        weekSearch.value = "";
+        renderWeekSummaries();
+      });
+      renderWeekSummaries();
+    }
+
+    const outcomeCategory = document.getElementById("outcomeCategory");
+    const outcomeSearch = document.getElementById("outcomeSearch");
+    const outcomeOutput = document.getElementById("outcomeOutput");
+    const resetOutcomeBtn = document.getElementById("resetOutcomeBtn");
+
+    function renderOutcomes() {
+      if (!outcomeCategory || !outcomeSearch || !outcomeOutput) return;
+      const cat = outcomeCategory.value;
+      const query = outcomeSearch.value.trim().toLowerCase();
+      const keys = cat === "all" ? Object.keys(outcomeData) : [cat];
+      let html = "";
+
+      keys.forEach(function (k) {
+        const section = outcomeData[k];
+        if (!section) return;
+        const filteredItems = section.items.filter(function (item) {
+          return !query || item.toLowerCase().includes(query) || section.title.toLowerCase().includes(query);
+        });
+        if (filteredItems.length > 0) {
+          const listHtml = filteredItems.map(function (i) {
+            return `<li>${i}</li>`;
+          }).join("");
+          html += `<div style="margin-bottom:1.25rem;">
+            <h3>${section.title}</h3>
+            <ul class="clean-list">${listHtml}</ul>
+          </div>`;
+        }
+      });
+
+      outcomeOutput.innerHTML = html || "<p>No matching outcomes or plans found.</p>";
+    }
+
+    if (outcomeCategory && outcomeSearch && resetOutcomeBtn) {
+      outcomeCategory.addEventListener("change", renderOutcomes);
+      outcomeSearch.addEventListener("input", renderOutcomes);
+      resetOutcomeBtn.addEventListener("click", function () {
+        outcomeCategory.value = "all";
+        outcomeSearch.value = "";
+        renderOutcomes();
+      });
+      renderOutcomes();
+    }
+
+    const togglePhotosBtn = document.getElementById("togglePhotosBtn");
+    const photoGalleryContainer = document.getElementById("photoGalleryContainer");
+
+    if (togglePhotosBtn && photoGalleryContainer) {
+      togglePhotosBtn.addEventListener("click", function () {
+        const isHidden = photoGalleryContainer.classList.toggle("hidden");
+        togglePhotosBtn.textContent = isHidden ? "Show Project Photos" : "Hide Project Photos";
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
